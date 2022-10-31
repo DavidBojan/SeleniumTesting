@@ -32,7 +32,7 @@ class Login(unittest.TestCase):
         self.assertEqual(title_expected, page_title, 'Page title is incorrect')
 
     def test_element_text(self):
-        page_title = self.chrome.find_element(By.XPATH, '//div[@id="content"]/div/h2').text
+        page_title = self.chrome.find_element(By.CSS_SELECTOR, 'div>h2').text
         title_expected = 'Login Page'
         self.assertEqual(title_expected, page_title, 'Element text is incorrect')
 
@@ -60,11 +60,11 @@ class Login(unittest.TestCase):
 
     def test_close_error_message(self):
         self.chrome.find_element(By.CLASS_NAME, 'radius').click()
-        self.chrome.find_element(By.XPATH, "//a[contains(text(),'×')]").click()
+        self.chrome.find_element(By.CSS_SELECTOR, 'a.close').click()
         self.test_error_displayed()
 
     def test_labels(self):
-        label_list = self.chrome.find_elements(By.XPATH, '//label')
+        label_list = self.chrome.find_elements(By.CSS_SELECTOR, 'label')
 
         expected_label0 = 'Username'
         self.assertEqual(label_list[0].text, expected_label0,
