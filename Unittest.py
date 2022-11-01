@@ -95,7 +95,7 @@ class Login(unittest.TestCase):
         self.chrome.find_element(By.XPATH, "//i[contains(.,'Logout')]").click()
 
     def test_brute_force_hacking(self):
-        passwords_list = self.chrome.find_element(By.XPATH, '//h4').text.split(sep=' ')
+        passwords_list = self.chrome.find_element(By.CSS_SELECTOR, 'h4').text.split(sep=' ')
         is_found = False
         password_found = None
         for password in range(len(passwords_list)):
