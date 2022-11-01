@@ -7,4 +7,6 @@ class Locators:
         self.password_id = 'password'
         self.close_error = 'a.close'
         self.label = 'label'
+        self.logout = 'a.button'
+        self.target_text = 'h4'
 
